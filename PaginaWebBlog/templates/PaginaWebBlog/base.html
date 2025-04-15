@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>NBA</title>
+</head>
+<body>
+    <h1>NBA</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'agregar_equipo' %}">Agregar equipo</a></li>
+            <li><a href="{% url 'agregar_jugador' %}">Agregar jugador</a></li>
+            <li><a href="{% url 'agregar_estadisticas' %}">Agregar estadísticas</a></li>
+        </ul>
+    </nav>
+    <hr>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
