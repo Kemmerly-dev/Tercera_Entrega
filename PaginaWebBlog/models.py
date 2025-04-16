@@ -9,14 +9,14 @@ class Equipo(models.Model):
 
 class Jugador(models.Model):
     nombre = models.CharField(max_length=100)
-    equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
+    equipo = models.CharField(max_length=100)
     posicion = models.CharField(max_length=50)
     promedio_puntos = models.FloatField()
     def __str__(self):
         return self.nombre
 
-class Estadisticas(models.Model):
-    jugador = models.ForeignKey(Jugador, on_delete=models.CASCADE)
+class Estadistica(models.Model):
+    jugador = models.CharField(max_length=100)
     temporada = models.CharField(max_length=10)
     puntos = models.IntegerField()
     asistencias = models.IntegerField()

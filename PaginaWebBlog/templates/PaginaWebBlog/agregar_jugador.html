@@ -1,10 +1,26 @@
 {% extends 'PaginaWebBlog/base.html' %}
 
+{% block title %}Agregar Jugador{% endblock %}
+
 {% block content %}
-<h2>Agregar jugador</h2>
-<form method="POST">
+<h2>Agregar nuevo jugador</h2>
+
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+
+<h3 class="mt-4">Jugadores Guardados:</h3>
+{% if jugadores %}
+    <ul>
+        {% for jugador in jugadores %}
+            <li>{{ jugador.nombre }} - {{ jugador.equipo }} - {{ jugador.posicion }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay jugadores guardados.</p>
+{% endif %}
+
 {% endblock %}
+

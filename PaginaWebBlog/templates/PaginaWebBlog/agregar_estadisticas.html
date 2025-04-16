@@ -1,10 +1,25 @@
 {% extends 'PaginaWebBlog/base.html' %}
 
+{% block title %}Agregar Estadísticas{% endblock %}
+
 {% block content %}
 <h2>Agregar estadísticas</h2>
-<form method="POST">
+
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+
+<h3 class="mt-4">Estadísticas Guardadas:</h3>
+{% if estadisticas %}
+    <ul>
+        {% for estadistica in estadisticas %}
+            <li>{{ estadistica.jugador.nombre }} - Puntos: {{ estadistica.puntos }} - Asistencias: {{ estadistica.asistencias }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay estadísticas guardadas.</p>
+{% endif %}
+
 {% endblock %}

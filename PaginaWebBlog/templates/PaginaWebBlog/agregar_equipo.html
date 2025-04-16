@@ -1,10 +1,25 @@
 {% extends 'PaginaWebBlog/base.html' %}
 
+{% block title %}Agregar Equipo{% endblock %}
+
 {% block content %}
-<h2>Agregar equipo</h2>
-<form method="POST">
+<h2>Agregar nuevo equipo</h2>
+
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+
+<h3 class="mt-4">Equipos Guardados:</h3>
+{% if equipos %}
+    <ul>
+        {% for equipo in equipos %}
+            <li>{{ equipo.nombre }} - {{ equipo.liga }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay equipos guardados.</p>
+{% endif %}
+
 {% endblock %}

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Jugador, Equipo, Estadisticas
+from .models import Jugador, Equipo, Estadistica
 
 class EquipoForm(forms.ModelForm):
     class Meta:
@@ -11,7 +11,7 @@ class JugadorForm(forms.ModelForm):
         model = Jugador
         fields = '__all__'
 
-class EstadisticasForm(forms.ModelForm):
+class EstadisticaForm(forms.ModelForm):
     class Meta:
-        model = Estadisticas
+        model = Estadistica
         fields = '__all__'
